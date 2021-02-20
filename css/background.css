@@ -1,0 +1,12 @@
+/* Header */
+#intro {
+	position: relative;
+	width: 100%;
+	/* background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg'); */
+	/* background-image: url('/img/bk7.jpg'); */
+	background-image: url('/img/bk6.jpg');
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}

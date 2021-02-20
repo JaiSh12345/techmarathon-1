@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/background.css">
 
     <style>
         * {margin: 0; padding: 0}
@@ -63,14 +64,15 @@
     <!--==========================Intro Section============================-->
     <section id="intro">
 
-        <canvas></canvas>
+        <!-- <canvas></canvas> -->
+        <canvas id="background-canvas"></canvas>
 
         <div class="intro-container wow fadeIn">
-            <h1 id="introh" class="mb-4 pb-0">The Annual<br>{<span> Sanganika </span>}<br> Fest</h1>
-            <p class="mb-4 pb-0">15<sup>th</sup> Feb, DDU College, Dwarka, New Delhi</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.821663814253!2d77.03585191508199!3d28.60512638242851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d053340000001%3A0x43728703a210ae01!2sDeen%20Dayal%20Upadhyaya%20College!5e0!3m2!1sen!2sin!4v1610613354877!5m2!1sen!2sin" width="400" height="25%" frameborder="0" style="border:0; border-radius: 10px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-            <p class="mb-4 pb-0"><a href="https://goo.gl/maps/57JA6C76gQU8xQzeA" target= " "><img width="13px" src="img/map.webp"/> 28°36'18.6"N 77°02'16.9"E</a></p>
-            <a href="https://youtu.be/qCeFEy1hk8s" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> <a href="http://portal.techmarathon.in/auth/signUp" target="_blank" class="about-btn">Register</a>
+          <h1 id="introh" class="mb-4 pb-0">The Annual<br>{<span> Sanganika </span>}<br> Fest</h1>
+          <p class="mb-4 pb-0">15<sup>th</sup> Feb, DDU College, Dwarka, New Delhi</p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.821663814253!2d77.03585191508199!3d28.60512638242851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d053340000001%3A0x43728703a210ae01!2sDeen%20Dayal%20Upadhyaya%20College!5e0!3m2!1sen!2sin!4v1610613354877!5m2!1sen!2sin" width="400" height="25%" frameborder="0" style="border:0; border-radius: 10px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          <p class="mb-4 pb-0"><a href="https://goo.gl/maps/57JA6C76gQU8xQzeA" target= " "><img width="13px" src="img/map.webp"/> 28°36'18.6"N 77°02'16.9"E</a></p>
+          <a href="https://youtu.be/qCeFEy1hk8s" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> <a href="http://portal.techmarathon.in/auth/signUp" target="_blank" class="about-btn">Register</a>
         </div>
 
         
@@ -82,11 +84,11 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <h2>About The Event</About></h2>
-                        <p>TechMarathon is an annual technical fest hosted by Department of computer science, Deen Dayal Upadhyaya College, University of Delhi. Comprising of respledent technical events and amusing non-tech events, it leaves the participant and volunteers in ecstatic wonder and overwhelming rejoice every year. On 6th Match let's come forth for this technical extravaganza where we guarantee you an experience felt never before.</p>
+                        <p>TechMarathon is an annual technical fest hosted by Department of computer science, Deen Dayal Upadhyaya College, University of Delhi. Comprising of respledent technical events and amusing non-tech events, it leaves the participant and volunteers in ecstatic wonder and overwhelming rejoice every year. On 6th Match let's come forth for this technical extravaganza where we guarantee you an experience felt never before...</p>
                     </div>
                     <div class="col-lg-3">
                         <h3>Where</h3>
-                        <p>Deen Dayal Upadhyaya College, Dwarka sec-3, New Delhi</p>
+                        <p>Deen Dayal Upadhyaya College, Dwarka Sector-3, New Delhi</p>
                     </div>
                     <div class="col-lg-3">
                         <h3>When</h3>
@@ -1244,51 +1246,8 @@
     <script src="js/jquery.localscroll.min.js"></script>
     <script src="js/main2.min.js"></script>
     <script src="js/lazysizes.min.js"></script>
-
-    <script>
-        // Initialising the canvas
-    var canvas = document.querySelector('canvas'),
-        ctx = canvas.getContext('2d');
-
-    // Setting the width and height of the canvas
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Setting up the letters
-    var letters = '01';
-    letters = letters.split('');
-
-    // Setting up the columns
-    var fontSize = 10,
-        columns = canvas.width / fontSize;
-
-    // Setting up the drops
-    var drops = [];
-    for (var i = 0; i < columns; i++) {
-    drops[i] = 1;
-    }
-
-    // Setting up the draw function
-    function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, .1)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < drops.length; i++) {
-        var text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillStyle = '#00af00';
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        drops[i]++;
-        if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
-        drops[i] = 0;
-        }
-    }
-    }
-
-    // Loop the animation
-    for(i=0;i<(canvas.height/9.7);i++)
-        draw()
-    setInterval(draw, 50);
-
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="js/background.js"></script>
 
 </body>
 
